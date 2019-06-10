@@ -186,7 +186,7 @@ public class ViewEmpleado extends javax.swing.JFrame {
 
     private void BtnGuardarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarEmpleadoActionPerformed
 
-        int cedula = Integer.parseInt(txtCedula.getText());
+        String cedula = txtCedula.getText();
         String nombre = txtNombre.getText();
         String direccion = txtDireccion.getText();
         String telefono = txtTelefono.getText();                

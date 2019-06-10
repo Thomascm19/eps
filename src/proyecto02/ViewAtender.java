@@ -35,8 +35,11 @@ public class ViewAtender extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         BtnGuardarEmpleado = new javax.swing.JButton();
         BtnVolver = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -55,10 +58,15 @@ public class ViewAtender extends javax.swing.JFrame {
         jPanel2.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Atiende Un Usuario");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, -1, -1));
+
         BtnGuardarEmpleado.setBackground(new java.awt.Color(73, 181, 172));
         BtnGuardarEmpleado.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
         BtnGuardarEmpleado.setForeground(new java.awt.Color(255, 255, 255));
-        BtnGuardarEmpleado.setText("ATTEND");
+        BtnGuardarEmpleado.setText("GUARDAR");
         BtnGuardarEmpleado.setBorder(null);
         BtnGuardarEmpleado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,6 +86,16 @@ public class ViewAtender extends javax.swing.JFrame {
             }
         });
         jPanel2.add(BtnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, 30, 34));
+
+        jLabel4.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("La Cedula Del Usuario y Del Doctor");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Recuerda Ingresar De Forma Correcta");
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, -1, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, 400, 360));
 
@@ -152,7 +170,10 @@ public class ViewAtender extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnGuardarEmpleado;
     private javax.swing.JButton BtnVolver;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables

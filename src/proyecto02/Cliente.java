@@ -2,12 +2,12 @@ package proyecto02;
 
 public class Cliente {
 
-    private int cedula;
+    private String cedula;
     private String nombre;
     private String direccion;
     private String telefono;
 
-    public Cliente(int cedula, String nombre, String direccion, String telefono) {
+    public Cliente(String cedula, String nombre, String direccion, String telefono) {
         this.cedula = cedula;
         this.nombre = nombre;
         this.direccion = direccion;
@@ -17,14 +17,14 @@ public class Cliente {
     /**
      * @return the cedula
      */
-    public int getCedula() {
+    public String getCedula() {
         return cedula;
     }
 
     /**
      * @param cedula the cedula to set
      */
-    public void setCedula(int cedula) {
+    public void setCedula(String cedula) {
         this.cedula = cedula;
     }
 

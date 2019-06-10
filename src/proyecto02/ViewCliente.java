@@ -196,7 +196,7 @@ public class ViewCliente extends javax.swing.JFrame {
 
     private void BtnGuardarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarUsuarioActionPerformed
 
-        int cedula = Integer.parseInt(txtCedula.getText());
+        String cedula = txtCedula.getText();
         String nombre = txtNombre.getText();
         String direccion = txtDireccion.getText();
         String telefono = txtTelefono.getText();
@@ -216,29 +216,34 @@ public class ViewCliente extends javax.swing.JFrame {
                 
         try {
             String buscarUsuario = JOptionPane.showInputDialog("Ingrese la cedula del cliente que desea atender: ");
-                for (int j = 0; j <= listaCliente.size(); j++) {
-                    Cliente clienteTemp = (Cliente) listaCliente.get(j);
-                    if (buscarUsuario.equals(clienteTemp.getCedula())) {
-                        listaCliente.Desencolar();
-                        contador = 0;
-                        JOptionPane.showMessageDialog(this, "El turno bajo cedula: " + buscarUsuario + " fue cancelado.");
-                    }                
+            for (int i = 0; i <= listaCliente.size(); i++) {
+                Cliente clienteTemp = (Cliente) listaCliente.get(i);
+                if (buscarUsuario.equals(clienteTemp.getCedula())) {
+
+                    listaCliente.Desencolar();
+                    contador = 0;
+                    JOptionPane.showMessageDialog(this, "El turno fue cancelado: " + clienteTemp.getCedula());
+
+                }
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error, Cedula no encontrada" + e);
+            JOptionPane.showMessageDialog(this, "Error, Cedula no encontrada: " + e);
         }
     }//GEN-LAST:event_BtnCancelarTurnoActionPerformed
 
     private void BtnMedicamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMedicamentosActionPerformed
+        
         try {
             String buscarUsuario = JOptionPane.showInputDialog("Ingrese la cedula con la que registro: ");
                 for (int j = 0; j <= listaCliente.size(); j++) {
                     Cliente clienteTemp = (Cliente) listaCliente.get(j);
                     if (buscarUsuario.equals(clienteTemp.getCedula())) {
+                        
                         listaCliente.Encolar(clienteTemp);
                         contador = 0;
                         JOptionPane.showMessageDialog(this, "La solicitud de medicamentos fue exitosa.");
-                    }                
+                    }
+                    break;
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error, Cedula no encontrada" + e);
