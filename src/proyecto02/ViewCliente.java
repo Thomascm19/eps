@@ -45,8 +45,6 @@ public class ViewCliente extends javax.swing.JFrame {
         jSeparator4 = new javax.swing.JSeparator();
         BtnGuardarUsuario = new javax.swing.JButton();
         BtnVolver = new javax.swing.JButton();
-        BtnCancelarTurno = new javax.swing.JButton();
-        BtnMedicamentos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -159,30 +157,6 @@ public class ViewCliente extends javax.swing.JFrame {
         });
         jPanel2.add(BtnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, 30, 34));
 
-        BtnCancelarTurno.setBackground(new java.awt.Color(73, 181, 172));
-        BtnCancelarTurno.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
-        BtnCancelarTurno.setForeground(new java.awt.Color(255, 255, 255));
-        BtnCancelarTurno.setText(" CANCELAR TURNO");
-        BtnCancelarTurno.setBorder(null);
-        BtnCancelarTurno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnCancelarTurnoActionPerformed(evt);
-            }
-        });
-        jPanel2.add(BtnCancelarTurno, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 460, 150, 34));
-
-        BtnMedicamentos.setBackground(new java.awt.Color(73, 181, 172));
-        BtnMedicamentos.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
-        BtnMedicamentos.setForeground(new java.awt.Color(255, 255, 255));
-        BtnMedicamentos.setText("MEDICAMENTOS");
-        BtnMedicamentos.setBorder(null);
-        BtnMedicamentos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnMedicamentosActionPerformed(evt);
-            }
-        });
-        jPanel2.add(BtnMedicamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 460, 150, 34));
-
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, 400, 510));
 
         pack();
@@ -211,44 +185,6 @@ public class ViewCliente extends javax.swing.JFrame {
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreActionPerformed
-
-    private void BtnCancelarTurnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelarTurnoActionPerformed
-                
-        try {
-            String buscarUsuario = JOptionPane.showInputDialog("Ingrese la cedula del cliente que desea atender: ");
-            for (int i = 0; i <= listaCliente.size(); i++) {
-                Cliente clienteTemp = (Cliente) listaCliente.get(i);
-                if (buscarUsuario.equals(clienteTemp.getCedula())) {
-
-                    listaCliente.Desencolar();
-                    contador = 0;
-                    JOptionPane.showMessageDialog(this, "El turno fue cancelado: " + clienteTemp.getCedula());
-
-                }
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error, Cedula no encontrada: " + e);
-        }
-    }//GEN-LAST:event_BtnCancelarTurnoActionPerformed
-
-    private void BtnMedicamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMedicamentosActionPerformed
-        
-        try {
-            String buscarUsuario = JOptionPane.showInputDialog("Ingrese la cedula con la que registro: ");
-                for (int j = 0; j <= listaCliente.size(); j++) {
-                    Cliente clienteTemp = (Cliente) listaCliente.get(j);
-                    if (buscarUsuario.equals(clienteTemp.getCedula())) {
-                        
-                        listaCliente.Encolar(clienteTemp);
-                        contador = 0;
-                        JOptionPane.showMessageDialog(this, "La solicitud de medicamentos fue exitosa.");
-                    }
-                    break;
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error, Cedula no encontrada" + e);
-        }
-    }//GEN-LAST:event_BtnMedicamentosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -286,9 +222,7 @@ public class ViewCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnCancelarTurno;
     private javax.swing.JButton BtnGuardarUsuario;
-    private javax.swing.JButton BtnMedicamentos;
     private javax.swing.JButton BtnVolver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

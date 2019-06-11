@@ -13,9 +13,6 @@ import javax.swing.JOptionPane;
  * @author Newshore
  */
 public class ViewAtender extends javax.swing.JFrame {
-
-   ViewCliente listaC = new ViewCliente();
-   ViewEmpleado listaE = new ViewEmpleado();
    
     public ViewAtender() {
         initComponents();
@@ -32,14 +29,21 @@ public class ViewAtender extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        BtnGuardarEmpleado = new javax.swing.JButton();
         BtnVolver = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        jMedicamentos = new javax.swing.JRadioButton();
+        jCitas = new javax.swing.JRadioButton();
+        labelCedula = new javax.swing.JLabel();
+        txtCedula = new javax.swing.JTextField();
+        separadorCedula = new javax.swing.JSeparator();
+        labelCajero = new javax.swing.JLabel();
+        txtNombre = new javax.swing.JTextField();
+        separadorCajero = new javax.swing.JSeparator();
+        BtnAtender = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -51,7 +55,7 @@ public class ViewAtender extends javax.swing.JFrame {
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto02/img/image (1).png"))); // NOI18N
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 370, 360));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 370, 420));
 
         jPanel2.setBackground(new java.awt.Color(33, 45, 62));
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -62,18 +66,6 @@ public class ViewAtender extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Atiende Un Usuario");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, -1, -1));
-
-        BtnGuardarEmpleado.setBackground(new java.awt.Color(73, 181, 172));
-        BtnGuardarEmpleado.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
-        BtnGuardarEmpleado.setForeground(new java.awt.Color(255, 255, 255));
-        BtnGuardarEmpleado.setText("GUARDAR");
-        BtnGuardarEmpleado.setBorder(null);
-        BtnGuardarEmpleado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnGuardarEmpleadoActionPerformed(evt);
-            }
-        });
-        jPanel2.add(BtnGuardarEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 99, 34));
 
         BtnVolver.setBackground(new java.awt.Color(73, 181, 172));
         BtnVolver.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
@@ -87,17 +79,84 @@ public class ViewAtender extends javax.swing.JFrame {
         });
         jPanel2.add(BtnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, 30, 34));
 
-        jLabel4.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("La Cedula Del Usuario y Del Doctor");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, -1, -1));
+        jMedicamentos.setBackground(new java.awt.Color(33, 45, 62));
+        buttonGroup1.add(jMedicamentos);
+        jMedicamentos.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 11)); // NOI18N
+        jMedicamentos.setForeground(new java.awt.Color(255, 255, 255));
+        jMedicamentos.setSelected(true);
+        jMedicamentos.setText("Medicamentos");
+        jMedicamentos.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jMedicamentosStateChanged(evt);
+            }
+        });
+        jMedicamentos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMedicamentosActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jMedicamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, -1, -1));
 
-        jLabel7.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Recuerda Ingresar De Forma Correcta");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, -1, -1));
+        jCitas.setBackground(new java.awt.Color(33, 45, 62));
+        buttonGroup1.add(jCitas);
+        jCitas.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 11)); // NOI18N
+        jCitas.setForeground(new java.awt.Color(255, 255, 255));
+        jCitas.setText("Citas");
+        jCitas.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jCitasStateChanged(evt);
+            }
+        });
+        jPanel2.add(jCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, 70, -1));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, 400, 360));
+        labelCedula.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
+        labelCedula.setForeground(new java.awt.Color(255, 255, 255));
+        labelCedula.setText("Cedula Del Usuario");
+        jPanel2.add(labelCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 190, -1, -1));
+
+        txtCedula.setBackground(new java.awt.Color(33, 45, 62));
+        txtCedula.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
+        txtCedula.setForeground(new java.awt.Color(255, 255, 255));
+        txtCedula.setBorder(null);
+        txtCedula.setCaretColor(new java.awt.Color(255, 255, 255));
+        jPanel2.add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 150, -1));
+
+        separadorCedula.setBackground(new java.awt.Color(73, 181, 172));
+        jPanel2.add(separadorCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 150, 7));
+
+        labelCajero.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
+        labelCajero.setForeground(new java.awt.Color(255, 255, 255));
+        labelCajero.setText("Nombre Del Cajero");
+        jPanel2.add(labelCajero, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, -1, -1));
+
+        txtNombre.setBackground(new java.awt.Color(33, 45, 62));
+        txtNombre.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
+        txtNombre.setForeground(new java.awt.Color(255, 255, 255));
+        txtNombre.setBorder(null);
+        txtNombre.setCaretColor(new java.awt.Color(255, 255, 255));
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 150, -1));
+
+        separadorCajero.setBackground(new java.awt.Color(73, 181, 172));
+        jPanel2.add(separadorCajero, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 150, 10));
+
+        BtnAtender.setBackground(new java.awt.Color(73, 181, 172));
+        BtnAtender.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
+        BtnAtender.setForeground(new java.awt.Color(255, 255, 255));
+        BtnAtender.setText("ATENDER");
+        BtnAtender.setBorder(null);
+        BtnAtender.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAtenderActionPerformed(evt);
+            }
+        });
+        jPanel2.add(BtnAtender, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, 99, 34));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, 400, 420));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -108,29 +167,41 @@ public class ViewAtender extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_BtnVolverActionPerformed
 
-    private void BtnGuardarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarEmpleadoActionPerformed
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreActionPerformed
 
-        try {
-            String buscarUsuario = JOptionPane.showInputDialog("Ingrese la cedula del cliente que desea atender: ");
-            String buscarDoctor = JOptionPane.showInputDialog("Ingrese la cedula del doctor: ");
-            for (int i = 0; i <= listaE.listaEmpleado.size(); i++) {
-                Empleado empleadoTemp = (Empleado) listaE.listaEmpleado.get(i);
-                for (int j = 0; j <= listaC.listaCliente.size(); j++) {
-                    Cliente clienteTemp = (Cliente) listaC.listaCliente.get(i);
-                    if (buscarUsuario.equals(clienteTemp.getCedula()) && buscarDoctor.equals(empleadoTemp.getCedula())) {
+    private void BtnAtenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAtenderActionPerformed
 
-                        listaC.listaCliente.Desencolar();
+       
 
-                        JOptionPane.showMessageDialog(this, "El turno bajo cedula: " + clienteTemp.getCedula() + " esta siendo atenido.");
+    }//GEN-LAST:event_BtnAtenderActionPerformed
 
-                    }
-                }
+    private void jMedicamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMedicamentosActionPerformed
+       
+    }//GEN-LAST:event_jMedicamentosActionPerformed
+
+    private void jMedicamentosStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jMedicamentosStateChanged
+         if (jMedicamentos.isSelected()) {
+                labelCajero.setVisible(false);
+                labelCedula.setVisible(true);
+                txtCedula.setVisible(true);
+                txtNombre.setVisible(false);
+                separadorCajero.setVisible(false);
+                separadorCedula.setVisible(true);
             }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error, Cedula no encontrada" + e);
-        }
+    }//GEN-LAST:event_jMedicamentosStateChanged
 
-    }//GEN-LAST:event_BtnGuardarEmpleadoActionPerformed
+    private void jCitasStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jCitasStateChanged
+        if(jCitas.isSelected()) {
+                labelCajero.setVisible(true);
+                labelCedula.setVisible(false);
+                txtCedula.setVisible(false);
+                txtNombre.setVisible(true);
+                separadorCajero.setVisible(true);
+                separadorCedula.setVisible(false);
+            }
+    }//GEN-LAST:event_jCitasStateChanged
 
     /**
      * @param args the command line arguments
@@ -168,13 +239,20 @@ public class ViewAtender extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnGuardarEmpleado;
+    private javax.swing.JButton BtnAtender;
     private javax.swing.JButton BtnVolver;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JRadioButton jCitas;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JRadioButton jMedicamentos;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel labelCajero;
+    private javax.swing.JLabel labelCedula;
+    private javax.swing.JSeparator separadorCajero;
+    private javax.swing.JSeparator separadorCedula;
+    private javax.swing.JTextField txtCedula;
+    private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }
