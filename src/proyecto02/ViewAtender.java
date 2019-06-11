@@ -13,11 +13,19 @@ import javax.swing.JOptionPane;
  * @author Newshore
  */
 public class ViewAtender extends javax.swing.JFrame {
-   
-    public ViewAtender() {
+
+    public ViewAtender(String nombre) {
         initComponents();
+        txtNombre.setText(nombre);
+
         
         
+        labelCajero.setVisible(false);
+        labelCedula.setVisible(true);
+        txtCedula.setVisible(true);
+        txtNombre.setVisible(false);
+        separadorCajero.setVisible(false);
+        separadorCedula.setVisible(true);
     }
 
     /**
@@ -154,7 +162,7 @@ public class ViewAtender extends javax.swing.JFrame {
                 BtnAtenderActionPerformed(evt);
             }
         });
-        jPanel2.add(BtnAtender, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, 99, 34));
+        jPanel2.add(BtnAtender, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 350, 99, 34));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, 400, 420));
 
@@ -173,67 +181,44 @@ public class ViewAtender extends javax.swing.JFrame {
 
     private void BtnAtenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAtenderActionPerformed
 
-       
 
     }//GEN-LAST:event_BtnAtenderActionPerformed
 
     private void jMedicamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMedicamentosActionPerformed
-       
+
     }//GEN-LAST:event_jMedicamentosActionPerformed
 
     private void jMedicamentosStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jMedicamentosStateChanged
-         if (jMedicamentos.isSelected()) {
-                labelCajero.setVisible(false);
-                labelCedula.setVisible(true);
-                txtCedula.setVisible(true);
-                txtNombre.setVisible(false);
-                separadorCajero.setVisible(false);
-                separadorCedula.setVisible(true);
-            }
+        if (jMedicamentos.isSelected()) {
+            labelCajero.setVisible(false);
+            labelCedula.setVisible(true);
+            txtCedula.setVisible(true);
+            txtNombre.setVisible(false);
+            separadorCajero.setVisible(false);
+            separadorCedula.setVisible(true);
+        }
     }//GEN-LAST:event_jMedicamentosStateChanged
 
     private void jCitasStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jCitasStateChanged
-        if(jCitas.isSelected()) {
-                labelCajero.setVisible(true);
-                labelCedula.setVisible(false);
-                txtCedula.setVisible(false);
-                txtNombre.setVisible(true);
-                separadorCajero.setVisible(true);
-                separadorCedula.setVisible(false);
-            }
+        if (jCitas.isSelected()) {
+            labelCajero.setVisible(true);
+            labelCedula.setVisible(false);
+            txtCedula.setVisible(false);
+            txtNombre.setVisible(true);
+            separadorCajero.setVisible(true);
+            separadorCedula.setVisible(false);
+        }
     }//GEN-LAST:event_jCitasStateChanged
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ViewAtender.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ViewAtender.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ViewAtender.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ViewAtender.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ViewAtender().setVisible(true);
+                 new ViewAtender("").setVisible(true);
             }
         });
     }

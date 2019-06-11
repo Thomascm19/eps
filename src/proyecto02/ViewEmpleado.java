@@ -18,7 +18,7 @@ public class ViewEmpleado extends javax.swing.JFrame {
    
     public ViewEmpleado() {
         initComponents();
-
+        
         listaEmpleado = new ArrayList<Empleado>();
 
     }
@@ -48,7 +48,6 @@ public class ViewEmpleado extends javax.swing.JFrame {
         jSeparator4 = new javax.swing.JSeparator();
         BtnGuardarEmpleado = new javax.swing.JButton();
         BtnVolver = new javax.swing.JButton();
-        BtnGuardarEmpleado1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
 
@@ -154,18 +153,6 @@ public class ViewEmpleado extends javax.swing.JFrame {
         });
         jPanel2.add(BtnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, 30, 34));
 
-        BtnGuardarEmpleado1.setBackground(new java.awt.Color(73, 181, 172));
-        BtnGuardarEmpleado1.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
-        BtnGuardarEmpleado1.setForeground(new java.awt.Color(255, 255, 255));
-        BtnGuardarEmpleado1.setText("ATENDER USUARIO");
-        BtnGuardarEmpleado1.setBorder(null);
-        BtnGuardarEmpleado1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnGuardarEmpleado1ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(BtnGuardarEmpleado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 470, 130, 34));
-
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, 400, 520));
 
         jPanel1.setBackground(new java.awt.Color(73, 181, 172));
@@ -196,6 +183,9 @@ public class ViewEmpleado extends javax.swing.JFrame {
         listaEmpleado.add(objEmpleado);
         JOptionPane.showMessageDialog(this, "Se agrego el empleado de forma correcta.");
 
+        ViewAtender open = new ViewAtender(txtNombre.getText());
+        open.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_BtnGuardarEmpleadoActionPerformed
 
     
@@ -204,13 +194,6 @@ public class ViewEmpleado extends javax.swing.JFrame {
         open.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BtnVolverActionPerformed
-
-    private void BtnGuardarEmpleado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarEmpleado1ActionPerformed
-        ViewAtender open = new ViewAtender();
-        open.setVisible(true);
-        this.setVisible(false);
-        
-    }//GEN-LAST:event_BtnGuardarEmpleado1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -242,14 +225,13 @@ public class ViewEmpleado extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ViewEmpleado().setVisible(true);
+               new ViewEmpleado().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnGuardarEmpleado;
-    private javax.swing.JButton BtnGuardarEmpleado1;
     private javax.swing.JButton BtnVolver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
