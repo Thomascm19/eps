@@ -210,7 +210,7 @@ public class ViewEmpresa extends javax.swing.JFrame {
         listaEmpresa.add(objEmpresa);
         JOptionPane.showMessageDialog(this, "Se agrego la IPS de forma correcta. ");
 
-        ViewEmpleado open = new ViewEmpleado(txtNombre.getText());
+        ViewEmpleado open = new ViewEmpleado();
         open.setVisible(true);
         this.setVisible(false);
 
