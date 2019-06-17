@@ -101,7 +101,7 @@ public class ViewPrincipal extends javax.swing.JFrame {
 
     private void BtnIrClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIrClienteActionPerformed
 
-        ViewCliente open = new ViewCliente();
+        ViewOpcionCliente open = new ViewOpcionCliente();
         open.setVisible(true);
         this.setVisible(false);
 
