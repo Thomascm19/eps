@@ -16,6 +16,7 @@ public class ViewCajero extends javax.swing.JFrame {
 
      ArrayList<Cajero> listaCajero;
      int contador;
+     String cedula; 
     public ViewCajero() {
         initComponents();
         
@@ -38,7 +39,7 @@ public class ViewCajero extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txtCedula = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txtNombre = new javax.swing.JTextField();
+        txtNombreCajero = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         txtDireccion = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -85,17 +86,17 @@ public class ViewCajero extends javax.swing.JFrame {
         jLabel3.setText("Nombre");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, -1, -1));
 
-        txtNombre.setBackground(new java.awt.Color(33, 45, 62));
-        txtNombre.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
-        txtNombre.setForeground(new java.awt.Color(255, 255, 255));
-        txtNombre.setBorder(null);
-        txtNombre.setCaretColor(new java.awt.Color(255, 255, 255));
-        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+        txtNombreCajero.setBackground(new java.awt.Color(33, 45, 62));
+        txtNombreCajero.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
+        txtNombreCajero.setForeground(new java.awt.Color(255, 255, 255));
+        txtNombreCajero.setBorder(null);
+        txtNombreCajero.setCaretColor(new java.awt.Color(255, 255, 255));
+        txtNombreCajero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreActionPerformed(evt);
+                txtNombreCajeroActionPerformed(evt);
             }
         });
-        jPanel2.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, 150, -1));
+        jPanel2.add(txtNombreCajero, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, 150, -1));
 
         jLabel4.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -167,21 +168,26 @@ public class ViewCajero extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+    private void txtNombreCajeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreCajeroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreActionPerformed
+    }//GEN-LAST:event_txtNombreCajeroActionPerformed
 
     private void BtnGuardarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarEmpleadoActionPerformed
 
-        String cedula = txtCedula.getText();
-        String nombre = txtNombre.getText();
+        cedula = txtCedula.getText();
+        String nombreCajero = txtNombreCajero.getText();
         String direccion = txtDireccion.getText();
         String telefono = txtTelefono.getText();
         //Se crea el objeto
-        Cajero objCajero = new Cajero(cedula, nombre, direccion, telefono);
+        Cajero objCajero = new Cajero(cedula, nombreCajero, direccion, telefono);
 
+        
         listaCajero.add(objCajero);
         JOptionPane.showMessageDialog(this, "Se agrego el cajero de forma correcta.");
+        
+        //ViewAtender open = new ViewAtender("",txtNombreCajero.getText(),"",ViewCliente.listaCliente);     
+        new ViewAtender("",txtNombreCajero.getText(),"",ViewCliente.listaCliente,"");
+        this.setVisible(false);
         
     }//GEN-LAST:event_BtnGuardarEmpleadoActionPerformed
 
@@ -243,7 +249,7 @@ public class ViewCajero extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JTextField txtCedula;
     private javax.swing.JTextField txtDireccion;
-    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtNombreCajero;
     private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 }

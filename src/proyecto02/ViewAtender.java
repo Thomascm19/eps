@@ -5,7 +5,6 @@
  */
 package proyecto02;
 
-import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,19 +12,28 @@ import javax.swing.JOptionPane;
  * @author Newshore
  */
 public class ViewAtender extends javax.swing.JFrame {
-
-    public ViewAtender(String nombre) {
+   
+    public ViewAtender(String nombreEmpleado,String nombreCajero,String cedulaCliente, Cola<Cliente> listClientes,String Medicamentos) {
         initComponents();
-        txtNombre.setText(nombre);
 
-        
-        
-        labelCajero.setVisible(false);
-        labelCedula.setVisible(true);
-        txtCedula.setVisible(true);
-        txtNombre.setVisible(false);
-        separadorCajero.setVisible(false);
+        txtNombreEmpleado.setText(nombreEmpleado);
+        txtNombreCajero.setText(nombreCajero);
+        txtCedulaCliente.setText(cedulaCliente);
+        txtMedicamentos.setText(Medicamentos);
+
+        labelCitas.setVisible(false);
+        labelCajero.setVisible(true);
+        labelEmpleado.setVisible(false);
+        txtCedulaCliente.setVisible(true);
+        txtNombreCajero.setVisible(true);
+        txtNombreEmpleado.setVisible(false);
+        txtMedicamentos.setVisible(true);
+        txtCitas.setVisible(false);
+        separadorCajero.setVisible(true);
         separadorCedula.setVisible(true);
+
+        BtnAtenderCitas.setVisible(false);
+        BtnAtenderMedicamentos.setVisible(true);
     }
 
     /**
@@ -45,13 +53,20 @@ public class ViewAtender extends javax.swing.JFrame {
         BtnVolver = new javax.swing.JButton();
         jMedicamentos = new javax.swing.JRadioButton();
         jCitas = new javax.swing.JRadioButton();
-        labelCedula = new javax.swing.JLabel();
-        txtCedula = new javax.swing.JTextField();
+        txtCedulaCliente = new javax.swing.JTextField();
         separadorCedula = new javax.swing.JSeparator();
         labelCajero = new javax.swing.JLabel();
-        txtNombre = new javax.swing.JTextField();
+        txtNombreCajero = new javax.swing.JTextField();
         separadorCajero = new javax.swing.JSeparator();
-        BtnAtender = new javax.swing.JButton();
+        BtnAtenderMedicamentos = new javax.swing.JButton();
+        txtNombreEmpleado = new javax.swing.JTextField();
+        separadorCajero1 = new javax.swing.JSeparator();
+        labelEmpleado = new javax.swing.JLabel();
+        labelCedula1 = new javax.swing.JLabel();
+        labelCitas = new javax.swing.JLabel();
+        BtnAtenderCitas = new javax.swing.JButton();
+        txtMedicamentos = new javax.swing.JTextArea();
+        txtCitas = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -63,7 +78,7 @@ public class ViewAtender extends javax.swing.JFrame {
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto02/img/image (1).png"))); // NOI18N
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 370, 420));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 370, 530));
 
         jPanel2.setBackground(new java.awt.Color(33, 45, 62));
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -117,17 +132,12 @@ public class ViewAtender extends javax.swing.JFrame {
         });
         jPanel2.add(jCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, 70, -1));
 
-        labelCedula.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
-        labelCedula.setForeground(new java.awt.Color(255, 255, 255));
-        labelCedula.setText("Cedula Del Usuario");
-        jPanel2.add(labelCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 190, -1, -1));
-
-        txtCedula.setBackground(new java.awt.Color(33, 45, 62));
-        txtCedula.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
-        txtCedula.setForeground(new java.awt.Color(255, 255, 255));
-        txtCedula.setBorder(null);
-        txtCedula.setCaretColor(new java.awt.Color(255, 255, 255));
-        jPanel2.add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 150, -1));
+        txtCedulaCliente.setBackground(new java.awt.Color(33, 45, 62));
+        txtCedulaCliente.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
+        txtCedulaCliente.setForeground(new java.awt.Color(255, 255, 255));
+        txtCedulaCliente.setBorder(null);
+        txtCedulaCliente.setCaretColor(new java.awt.Color(255, 255, 255));
+        jPanel2.add(txtCedulaCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 150, -1));
 
         separadorCedula.setBackground(new java.awt.Color(73, 181, 172));
         jPanel2.add(separadorCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 150, 7));
@@ -137,34 +147,91 @@ public class ViewAtender extends javax.swing.JFrame {
         labelCajero.setText("Nombre Del Cajero");
         jPanel2.add(labelCajero, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, -1, -1));
 
-        txtNombre.setBackground(new java.awt.Color(33, 45, 62));
-        txtNombre.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
-        txtNombre.setForeground(new java.awt.Color(255, 255, 255));
-        txtNombre.setBorder(null);
-        txtNombre.setCaretColor(new java.awt.Color(255, 255, 255));
-        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+        txtNombreCajero.setBackground(new java.awt.Color(33, 45, 62));
+        txtNombreCajero.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
+        txtNombreCajero.setForeground(new java.awt.Color(255, 255, 255));
+        txtNombreCajero.setBorder(null);
+        txtNombreCajero.setCaretColor(new java.awt.Color(255, 255, 255));
+        txtNombreCajero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreActionPerformed(evt);
+                txtNombreCajeroActionPerformed(evt);
             }
         });
-        jPanel2.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 150, -1));
+        jPanel2.add(txtNombreCajero, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 150, -1));
 
         separadorCajero.setBackground(new java.awt.Color(73, 181, 172));
         jPanel2.add(separadorCajero, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 150, 10));
 
-        BtnAtender.setBackground(new java.awt.Color(73, 181, 172));
-        BtnAtender.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
-        BtnAtender.setForeground(new java.awt.Color(255, 255, 255));
-        BtnAtender.setText("ATENDER");
-        BtnAtender.setBorder(null);
-        BtnAtender.addActionListener(new java.awt.event.ActionListener() {
+        BtnAtenderMedicamentos.setBackground(new java.awt.Color(73, 181, 172));
+        BtnAtenderMedicamentos.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
+        BtnAtenderMedicamentos.setForeground(new java.awt.Color(255, 255, 255));
+        BtnAtenderMedicamentos.setText("ATENDER MEDICAMENTOS");
+        BtnAtenderMedicamentos.setBorder(null);
+        BtnAtenderMedicamentos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnAtenderActionPerformed(evt);
+                BtnAtenderMedicamentosActionPerformed(evt);
             }
         });
-        jPanel2.add(BtnAtender, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 350, 99, 34));
+        jPanel2.add(BtnAtenderMedicamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 490, 190, 34));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, 400, 420));
+        txtNombreEmpleado.setBackground(new java.awt.Color(33, 45, 62));
+        txtNombreEmpleado.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
+        txtNombreEmpleado.setForeground(new java.awt.Color(255, 255, 255));
+        txtNombreEmpleado.setBorder(null);
+        txtNombreEmpleado.setCaretColor(new java.awt.Color(255, 255, 255));
+        txtNombreEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreEmpleadoActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtNombreEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 150, -1));
+
+        separadorCajero1.setBackground(new java.awt.Color(73, 181, 172));
+        jPanel2.add(separadorCajero1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 150, 10));
+
+        labelEmpleado.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
+        labelEmpleado.setForeground(new java.awt.Color(255, 255, 255));
+        labelEmpleado.setText("Nombre Del Doctor");
+        jPanel2.add(labelEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, -1, -1));
+
+        labelCedula1.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
+        labelCedula1.setForeground(new java.awt.Color(255, 255, 255));
+        labelCedula1.setText("Cedula Del Usuario");
+        jPanel2.add(labelCedula1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 190, -1, -1));
+
+        labelCitas.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
+        labelCitas.setForeground(new java.awt.Color(255, 255, 255));
+        labelCitas.setText("Ingrese los sintomas:");
+        jPanel2.add(labelCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 350, -1, -1));
+
+        BtnAtenderCitas.setBackground(new java.awt.Color(73, 181, 172));
+        BtnAtenderCitas.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
+        BtnAtenderCitas.setForeground(new java.awt.Color(255, 255, 255));
+        BtnAtenderCitas.setText("ATENDER CITAS");
+        BtnAtenderCitas.setBorder(null);
+        BtnAtenderCitas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAtenderCitasActionPerformed(evt);
+            }
+        });
+        jPanel2.add(BtnAtenderCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 490, 190, 34));
+
+        txtMedicamentos.setBackground(new java.awt.Color(73, 181, 172));
+        txtMedicamentos.setColumns(20);
+        txtMedicamentos.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 13)); // NOI18N
+        txtMedicamentos.setForeground(new java.awt.Color(255, 255, 255));
+        txtMedicamentos.setRows(5);
+        txtMedicamentos.setBorder(null);
+        jPanel2.add(txtMedicamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 380, 260, 100));
+
+        txtCitas.setBackground(new java.awt.Color(73, 181, 172));
+        txtCitas.setColumns(20);
+        txtCitas.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 13)); // NOI18N
+        txtCitas.setForeground(new java.awt.Color(255, 255, 255));
+        txtCitas.setRows(5);
+        jPanel2.add(txtCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 380, 260, 100));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, 400, 530));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -175,14 +242,18 @@ public class ViewAtender extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_BtnVolverActionPerformed
 
-    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+    private void txtNombreCajeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreCajeroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreActionPerformed
+    }//GEN-LAST:event_txtNombreCajeroActionPerformed
 
-    private void BtnAtenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAtenderActionPerformed
+    private void BtnAtenderMedicamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAtenderMedicamentosActionPerformed
+                     
+       // if(txtNombreCajero.equals())
+        ViewCliente.listaCliente.DesencolarM();
+        JOptionPane.showMessageDialog(this, "Los medicamentos fueron despachados de forma correcta");
 
 
-    }//GEN-LAST:event_BtnAtenderActionPerformed
+    }//GEN-LAST:event_BtnAtenderMedicamentosActionPerformed
 
     private void jMedicamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMedicamentosActionPerformed
 
@@ -190,41 +261,63 @@ public class ViewAtender extends javax.swing.JFrame {
 
     private void jMedicamentosStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jMedicamentosStateChanged
         if (jMedicamentos.isSelected()) {
-            labelCajero.setVisible(false);
-            labelCedula.setVisible(true);
-            txtCedula.setVisible(true);
-            txtNombre.setVisible(false);
+            labelCitas.setVisible(false);
+            labelCajero.setVisible(true);
+            labelEmpleado.setVisible(false);
+            txtMedicamentos.setVisible(true);
+            txtCitas.setVisible(false);
+            txtCedulaCliente.setVisible(true);
+            txtNombreCajero.setVisible(true);
+            txtNombreEmpleado.setVisible(false);
             separadorCajero.setVisible(false);
             separadorCedula.setVisible(true);
+            BtnAtenderCitas.setVisible(false);
+            BtnAtenderMedicamentos.setVisible(true);
         }
     }//GEN-LAST:event_jMedicamentosStateChanged
 
     private void jCitasStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jCitasStateChanged
         if (jCitas.isSelected()) {
-            labelCajero.setVisible(true);
-            labelCedula.setVisible(false);
-            txtCedula.setVisible(false);
-            txtNombre.setVisible(true);
+            labelCitas.setVisible(true);
+            labelCajero.setVisible(false);
+            labelEmpleado.setVisible(true);
+            txtCitas.setVisible(true);
+            txtMedicamentos.setVisible(false);
+            txtCedulaCliente.setVisible(true);
+            txtNombreCajero.setVisible(false);
+            txtNombreEmpleado.setVisible(true);
             separadorCajero.setVisible(true);
-            separadorCedula.setVisible(false);
+            BtnAtenderCitas.setVisible(true);
+            BtnAtenderMedicamentos.setVisible(false);
+
         }
     }//GEN-LAST:event_jCitasStateChanged
+
+    private void txtNombreEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreEmpleadoActionPerformed
+       
+    }//GEN-LAST:event_txtNombreEmpleadoActionPerformed
+
+    private void BtnAtenderCitasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAtenderCitasActionPerformed
+       
+        ViewCliente.listaCliente.Desencolar();
+        JOptionPane.showMessageDialog(this, "La cita fueron despachados de forma correcta");
+    }//GEN-LAST:event_BtnAtenderCitasActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
 
-
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                 new ViewAtender("").setVisible(true);
+                new ViewAtender("","","",ViewCliente.listaCliente,"").setVisible(true);                
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnAtender;
+    private javax.swing.JButton BtnAtenderCitas;
+    private javax.swing.JButton BtnAtenderMedicamentos;
     private javax.swing.JButton BtnVolver;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JRadioButton jCitas;
@@ -234,10 +327,16 @@ public class ViewAtender extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel labelCajero;
-    private javax.swing.JLabel labelCedula;
+    private javax.swing.JLabel labelCedula1;
+    private javax.swing.JLabel labelCitas;
+    private javax.swing.JLabel labelEmpleado;
     private javax.swing.JSeparator separadorCajero;
+    private javax.swing.JSeparator separadorCajero1;
     private javax.swing.JSeparator separadorCedula;
-    private javax.swing.JTextField txtCedula;
-    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtCedulaCliente;
+    private javax.swing.JTextArea txtCitas;
+    private javax.swing.JTextArea txtMedicamentos;
+    private javax.swing.JTextField txtNombreCajero;
+    private javax.swing.JTextField txtNombreEmpleado;
     // End of variables declaration//GEN-END:variables
 }

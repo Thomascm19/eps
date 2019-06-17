@@ -94,7 +94,7 @@ public class ViewPrincipal extends javax.swing.JFrame {
 
     private void BtnIrEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIrEmpresaActionPerformed
 
-        ViewEmpresa open = new ViewEmpresa();
+        ViewSeleccionPersonalEmpresa open = new ViewSeleccionPersonalEmpresa();
         open.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BtnIrEmpresaActionPerformed

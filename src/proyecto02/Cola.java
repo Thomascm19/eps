@@ -16,5 +16,11 @@ public class Cola<E> extends ArrayList {
         if(!this.isEmpty())
         this.remove(0);
     }
-    
+    public void EncolaM(Medicamentos medicamentos){
+        this.add(medicamentos);
+    }
+    public void DesencolarM(){
+        if(!this.isEmpty())
+        this.remove(0);
+    }
 }

@@ -1,6 +1,6 @@
 package proyecto02;
 
-import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
 
 /**
@@ -9,12 +9,12 @@ import javax.swing.JOptionPane;
  */
 public class ViewCliente extends javax.swing.JFrame {
 
-    Cola<Cliente> listaCliente;
+    static Cola<Cliente> listaCliente;
     int contador;
 
     public ViewCliente() {
         initComponents();
-        listaCliente = new Cola<Cliente>();
+        listaCliente = new Cola<>();
         contador = 0;
     }
 
@@ -31,7 +31,7 @@ public class ViewCliente extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        txtCedula = new javax.swing.JTextField();
+        txtCedulaCliente = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -68,12 +68,12 @@ public class ViewCliente extends javax.swing.JFrame {
         jLabel2.setText("Cedula");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, -1, -1));
 
-        txtCedula.setBackground(new java.awt.Color(33, 45, 62));
-        txtCedula.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
-        txtCedula.setForeground(new java.awt.Color(255, 255, 255));
-        txtCedula.setBorder(null);
-        txtCedula.setCaretColor(new java.awt.Color(255, 255, 255));
-        jPanel2.add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 150, -1));
+        txtCedulaCliente.setBackground(new java.awt.Color(33, 45, 62));
+        txtCedulaCliente.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
+        txtCedulaCliente.setForeground(new java.awt.Color(255, 255, 255));
+        txtCedulaCliente.setBorder(null);
+        txtCedulaCliente.setCaretColor(new java.awt.Color(255, 255, 255));
+        jPanel2.add(txtCedulaCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 150, -1));
 
         jLabel3.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -170,7 +170,7 @@ public class ViewCliente extends javax.swing.JFrame {
 
     private void BtnGuardarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarUsuarioActionPerformed
 
-        String cedula = txtCedula.getText();
+        String cedula = txtCedulaCliente.getText();
         String nombre = txtNombre.getText();
         String direccion = txtDireccion.getText();
         String telefono = txtTelefono.getText();
@@ -180,6 +180,12 @@ public class ViewCliente extends javax.swing.JFrame {
         listaCliente.Encolar(objCliente);
         contador++;
         JOptionPane.showMessageDialog(this, "Sus datos se agregaron de forma correcta, espere su turno. " + contador);
+        
+        //ViewAtender open = new ViewAtender("","",txtCedulaCliente.getText(),listaCliente);
+        new ViewAtender("","",txtCedulaCliente.getText(),ViewCliente.listaCliente,"");
+        this.setVisible(true);
+        
+       
     }//GEN-LAST:event_BtnGuardarUsuarioActionPerformed
 
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
@@ -236,7 +242,7 @@ public class ViewCliente extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JTextField txtCedula;
+    private javax.swing.JTextField txtCedulaCliente;
     private javax.swing.JTextField txtDireccion;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtTelefono;

@@ -36,7 +36,7 @@ public class ViewEmpleado extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txtCedula = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txtNombre = new javax.swing.JTextField();
+        txtNombreEmpleado = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         txtDireccion = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -76,17 +76,17 @@ public class ViewEmpleado extends javax.swing.JFrame {
         jLabel3.setText("Nombre");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, -1, -1));
 
-        txtNombre.setBackground(new java.awt.Color(33, 45, 62));
-        txtNombre.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
-        txtNombre.setForeground(new java.awt.Color(255, 255, 255));
-        txtNombre.setBorder(null);
-        txtNombre.setCaretColor(new java.awt.Color(255, 255, 255));
-        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+        txtNombreEmpleado.setBackground(new java.awt.Color(33, 45, 62));
+        txtNombreEmpleado.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
+        txtNombreEmpleado.setForeground(new java.awt.Color(255, 255, 255));
+        txtNombreEmpleado.setBorder(null);
+        txtNombreEmpleado.setCaretColor(new java.awt.Color(255, 255, 255));
+        txtNombreEmpleado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreActionPerformed(evt);
+                txtNombreEmpleadoActionPerformed(evt);
             }
         });
-        jPanel2.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, 150, -1));
+        jPanel2.add(txtNombreEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, 150, -1));
 
         jLabel4.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -167,23 +167,23 @@ public class ViewEmpleado extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+    private void txtNombreEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreEmpleadoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreActionPerformed
+    }//GEN-LAST:event_txtNombreEmpleadoActionPerformed
 
     private void BtnGuardarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarEmpleadoActionPerformed
 
         String cedula = txtCedula.getText();
-        String nombre = txtNombre.getText();
+        String nombreEmpleado = txtNombreEmpleado.getText();
         String direccion = txtDireccion.getText();
         String telefono = txtTelefono.getText();                
         //Se crea el objeto
-        Empleado objEmpleado = new Empleado(cedula, nombre, direccion, telefono);
+        Empleado objEmpleado = new Empleado(cedula, nombreEmpleado, direccion, telefono);
 
         listaEmpleado.add(objEmpleado);
         JOptionPane.showMessageDialog(this, "Se agrego el empleado de forma correcta.");
 
-        ViewAtender open = new ViewAtender(txtNombre.getText());
+        ViewAtender open = new ViewAtender(txtNombreEmpleado.getText(),"","",ViewCliente.listaCliente,"");
         open.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BtnGuardarEmpleadoActionPerformed
@@ -247,7 +247,7 @@ public class ViewEmpleado extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JTextField txtCedula;
     private javax.swing.JTextField txtDireccion;
-    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtNombreEmpleado;
     private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 }
