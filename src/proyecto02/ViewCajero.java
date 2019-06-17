@@ -185,8 +185,8 @@ public class ViewCajero extends javax.swing.JFrame {
         listaCajero.add(objCajero);
         JOptionPane.showMessageDialog(this, "Se agrego el cajero de forma correcta.");
         
-        //ViewAtender open = new ViewAtender("",txtNombreCajero.getText(),"",ViewCliente.listaCliente);     
-        new ViewAtender("",txtNombreCajero.getText(),"",ViewCliente.listaCliente,"");
+        ViewAtender open = new ViewAtender("",txtNombreCajero.getText(),"",ViewCliente.listaCliente,"");     
+        open.setVisible(true);
         this.setVisible(false);
         
     }//GEN-LAST:event_BtnGuardarEmpleadoActionPerformed
